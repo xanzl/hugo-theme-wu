@@ -1,0 +1,7 @@
+# 友链配置
+# 格式如下
+- name: "站点名称"
+  url: "站点链接"
+  avatar: "站点头像"
+  feed: "RSS/ATOM链接"
+  quote: "站点描述"

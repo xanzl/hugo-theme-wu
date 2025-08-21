@@ -1,0 +1,5 @@
+mounts:
+  - source: data
+    target: static/data
+  - source: static
+    target: static

@@ -1,0 +1,36 @@
+{{- /* 去掉首尾空白 */ -}}
+{{- $pages := .Site.RegularPages -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 }}{{ $pages = $pages | first $limit }}{{ end -}}
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ .Site.Title }}</title>
+  <link href="{{ .Site.BaseURL }}"/>
+  <link href="{{ .Permalink }}" rel="self"/>
+  <id>{{ .Site.BaseURL | strings.TrimSuffix "/" }}</id>
+  <subtitle>{{ .Site.Params.description | default .Site.Title }}</subtitle>
+  <updated>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+
+  {{/* 单作者站点，所有 entry 共用 */}}
+  <author>
+    <name>{{ .Site.Params.author | default .Site.Title }}</name>
+    {{ with .Site.Params.email }}<email>{{ . }}</email>{{ end }}
+  </author>
+
+  {{- range $pages -}}
+  <entry>
+    <title>{{ .Title }}</title>
+    <link href="{{ .Permalink }}"/>
+    <id>{{ .Permalink }}</id>
+    <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</published>
+    <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+
+    {{ $full := site.Params.feedFull | default false }}
+
+    {{ if $full }}
+      <content type="html">{{ printf "<![CDATA[%s]]>" .Content | safeHTML }}</content>
+    {{ else }}
+      <summary>{{ .Summary | plainify | htmlUnescape }}</summary>
+    {{ end }}
+  </entry>
+  {{- end -}}
+</feed>

@@ -1,0 +1,58 @@
+/* 1. 让代码块成为新的定位参照（原来已经 position: relative，无需再写） */
+.highlight {
+  position: relative;   /* 确保 ::before 的包含块是 .highlight */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #272822;
+  margin: 0;
+}
+
+/* 2. 真正的横向滚动扔给 pre */
+.highlight pre {
+  margin: 0;
+  padding: 0;
+  background: #272822;
+  color: #f8f8f2;
+  overflow-x: auto;
+  tab-size: 4;
+  counter-reset: line;
+}
+
+/* 4. 语言标签：固定在代码块右上角，不随 pre 滚动 */
+.highlight::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  z-index: 2;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.75rem;
+  color: #272822;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  pointer-events: none; /* 避免挡住鼠标 */
+}
+
+.highlight pre code {
+  padding: 0.8rem;
+}
+
+/* 1. 所有元素先统一盒模型 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. 给 .highlight 的父级再上一道保险 */
+.highlight-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* 3. 如果用了行号，强制折行或滚动 */
+.highlight pre code {
+  display: block;
+  white-space: pre;
+  overflow-x: auto;
+}

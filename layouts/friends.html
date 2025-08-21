@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="friends-page">
+  <div class="friends-container">
+  
+    <h1>{{ .Title }}</h1>
+
+    <div class="friends-content">
+      {{ .Content }}
+    </div>
+
+    <div class="friend-list">
+      {{ range .Site.Data.friends }}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="friend-card">
+        <div class="friend-avatar-wrapper">
+          <img 
+            src="{{ .avatar }}" 
+            alt="{{ .name }}头像" 
+            class="friend-avatar" 
+            loading="lazy"
+            width="80"
+            height="80"
+          >
+        </div>
+        <div class="friend-info">
+          <h3 class="friend-name">{{ .name }}</h3>
+          <p class="friend-quote">{{ .quote }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ partial "comments.html" . }}
+</div>
+{{ end }}

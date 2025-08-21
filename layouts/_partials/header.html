@@ -1,0 +1,18 @@
+<a id="site-logo" href="{{ "/" | relLangURL }}">
+  {{ site.Title }}
+</a>
+
+<input type="checkbox" id="nav-toggle">
+<label for="nav-toggle" class="nav-button" aria-label="导航菜单">
+  <span class="nav-button-1"></span>
+  <span class="nav-button-2"></span>
+  <span class="nav-button-3"></span>
+</label>
+
+<div class="nav-container">
+  <ul class="nav-menu">
+     {{ range site.Menus.main }}
+        <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+     {{ end }}
+  </ul>
+</div>

@@ -1,0 +1,9 @@
+goldmark:
+  renderer:
+    unsafe: true   # 允许原始 HTML
+
+# 文章目录配置
+tableOfContents:
+  startLevel: 2   # 目录从几级标题开始
+  endLevel: 4   #几级标题结束
+  ordered: false

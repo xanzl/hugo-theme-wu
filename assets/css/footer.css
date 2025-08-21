@@ -1,0 +1,9 @@
+footer {
+  margin: 5vw;
+}
+
+.footer-link {
+  display: inline-flex;
+  margin: 1rem 0;
+  gap: 1rem
+}

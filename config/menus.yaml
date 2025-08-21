@@ -1,0 +1,14 @@
+# 配置菜单，按以下格式写就行，weight是权重，越小越靠前
+main:
+  - name: 主页
+    url:  /
+    weight: 10
+  - name: 文章
+    pageRef: posts
+    weight: 20
+  - name: 友人帐
+    pageRef: friends
+    weight: 30
+  - name: 关于
+    pageRef: about
+    weight: 40

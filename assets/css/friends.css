@@ -1,0 +1,96 @@
+@media (prefers-color-scheme: light) {
+  .friends-page {
+    --friend-card-bg: #ffffff;
+    --friend-card-border: rgba(0, 0, 0, 0.1);
+    --friend-primary-text: #2c3e50;
+    --friend-secondary-text: #7f8c8d;
+    --friend-avatar-border: #e5e7eb;
+    --friend-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .friends-page {
+    --friend-card-bg: #1a1a1a;
+    --friend-card-border: rgba(255, 255, 255, 0.1);
+    --friend-primary-text: #f8f9fa;
+    --friend-secondary-text: #9ca3af;
+    --friend-avatar-border: #374151;
+    --friend-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.friends-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.friend-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.friend-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--friend-card-bg);
+  border: 1px solid var(--friend-card-border);
+  border-radius: 12px;
+  box-shadow: var(--friend-card-shadow);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.friend-card:hover {
+  transform: translateY(-4px);
+}
+
+.friend-avatar-wrapper {
+  flex: 0 0 auto;
+  margin-right: 1.5rem;
+}
+
+.friend-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--friend-avatar-border);
+}
+
+.friend-info {
+  flex: 1;
+}
+
+.friend-name {
+  margin: 0 0 0.5rem;
+  color: var(--friend-primary-text);
+  font-size: 1.25rem;
+}
+
+.friend-quote {
+  margin: 0;
+  color: var(--friend-secondary-text);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  .friend-card {
+    padding: 1rem;
+  }
+
+  .friend-avatar-wrapper {
+    margin-right: 1rem;
+  }
+
+  .friend-avatar {
+    width: 60px;
+    height: 60px;
+  }
+}

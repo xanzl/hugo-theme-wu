@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="taxonomy-list">
+  <h1>{{ .Title }}</h1>
+
+  {{/* 获取当前分类法（taxonomy）下所有 Term */}}
+  {{ range .Pages }}
+    {{ $term := . }}                             <!-- 当前分类/标签 -->
+    {{ $latest := first 1 $term.Pages.ByDate.Reverse }}
+
+    <article class="tax-item">
+      <h2>
+        <a href="{{ $term.RelPermalink }}">
+          {{ $term.Title }} ({{ len $term.Pages }})
+        </a>
+      </h2>
+
+      {{ with index $latest 0 }}
+        <p class="latest">
+          最新：<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <small>{{ .Date.Format "2006-01-02" }}</small>
+        </p>
+      {{ end }}
+    </article>
+  {{ end }}
+</section>
+{{ end }}

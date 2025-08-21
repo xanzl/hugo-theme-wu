@@ -1,0 +1,14 @@
+<hr>
+<div class="footer-link">
+{{ range site.Params.footerLinks }}
+  <a href="{{ .url }}" title="{{ .name }}">
+    {{ if .icon }}
+      <img src="/icons/{{ .icon }}" alt="{{ .name }}" width="20">
+    {{ else }}
+      {{ .name }}
+    {{ end }}
+  </a>
+{{ end }}
+</div>
+
+<div>

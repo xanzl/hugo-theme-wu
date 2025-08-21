@@ -1,0 +1,61 @@
+.posts-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 0.5rem;
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--friend-card-bg, #fff);
+  border: 1px solid var(--friend-card-border, #e5e7eb);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--friend-card-shadow, 0 2px 8px rgba(0,0,0,.1));
+  margin-bottom: 2rem;
+}
+.post-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.post-info {
+  padding: 1.2rem 1.5rem 1.5rem;
+}
+.post-categories {
+  margin-bottom: .5rem;
+}
+.category {
+  display: inline-block;
+  font-size: .8rem;
+  padding: .2rem .1rem;
+  margin-right: .25rem;
+  border-radius: 999px;
+  color: --text;
+}
+.post-title {
+  margin: 0 0 .5rem;
+  font-size: 1.25rem;
+}
+.post-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+.post-desc {
+  margin: 0 0 1rem;
+  color: var(--friend-secondary-text, #7f8c8d);
+  font-size: .95rem;
+  line-height: 1.4;
+}
+.post-meta time {
+  display: inline-block;
+  font-size: .9rem;
+  color: #9ca3af;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --friend-card-bg: #252525;
+    --category-bg: #0EA5E9;
+    --category-text: #FFFFFF;
+  }
+}

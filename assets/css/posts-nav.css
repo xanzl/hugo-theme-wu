@@ -1,0 +1,17 @@
+.posts-nav-prev span,
+.posts-nav-next span {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.posts-nav-prev a,
+.posts-nav-next a {
+  font-size: 1.2rem;
+}
+
+.posts-nav-prev,
+.posts-nav-next {
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.7rem;
+}

@@ -1,0 +1,28 @@
+baseURL: "https://example.com/"   # ← 自行替换
+languageCode: "zh-CN"
+defaultContentLanguage: "zh-cn"
+title: "站点标题"
+theme: "wu"                # ← 主题名占位
+
+# 让 Git 信息自动更新 lastmod
+enableGitInfo: true
+
+# 输出格式：HTML + Atom
+outputs:
+  home:   ["HTML", "ATOM"]
+  page:   ["HTML"]
+  section:["HTML"]
+  taxonomy:["HTML"]
+  term:   ["HTML"]
+
+# 输出格式定义
+outputFormats:
+  atom:
+    noUgly: true
+    baseName: "feed"
+    mediaType: "application/atom+xml"
+
+# 媒体类型
+mediaTypes:
+  application/atom+xml:
+    suffixes: ["xml"]
